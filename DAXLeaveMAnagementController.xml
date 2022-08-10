@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>DAXLeaveMAnagementController</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+class DAXLeaveMAnagementController extends SysOperationServiceController
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name = "_className"></param>
+    /// <param name = "_methodName"></param>
+    /// <param name = "_executionMode"></param>
+    public void new()
+    {
+        super(classStr(DAXLeaveAppTableService),methodStr(DAXLeaveAppTableService,performEmployeeStatusUpdate),sysoperationexecutionMode::Synchronous);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    public static  DAXLeaveMAnagementController construct()
+    {
+        DAXLeaveMAnagementController controller;
+
+        controller = new DAXLeaveMAnagementController();
+        controller.ParmshowDialog(true);
+        controller.parmShowProgressForm(false);
+
+        return controller;
+
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>main</Name>
+				<Source><![CDATA[
+    public static void main(Args _args)
+    {
+        DAXLeaveMAnagementController controller = DAXLeaveMAnagementController::construct();
+        controller.startOperation();
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

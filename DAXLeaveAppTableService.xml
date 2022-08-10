@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>DAXLeaveAppTableService</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+class DAXLeaveAppTableService extends SysOperationServiceBase
+{
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>performEmployeeStatusUpdate</Name>
+				<Source><![CDATA[
+    public void performEmployeeStatusUpdate(DAXLeaveAppTableContract _contract )
+    {
+        DAXLeaveAppTable leaveapptable;
+        StatusID statusid = _contract.parmLeaveStatus();
+
+        ttsbegin;
+    while select forupdate leaveapptable
+         where leaveapptable.approvaldate < systemDateGet()
+            && leaveapptable.statusid==DAXLeaveStatus::Submitted
+
+    {
+    
+        leaveapptable.statusid=DAXLeaveStatus::Approved;
+
+        ttscommit;
+            Info(" Update successfully ");
+    }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

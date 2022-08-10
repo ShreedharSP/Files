@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>DAXLeaveAppTableContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[DataContractAttribute]
+class DAXLeaveAppTableContract
+{
+
+    StatusID statusId;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmLeaveStatus</Name>
+				<Source><![CDATA[
+    [DataMemberAttribute]
+    public StatusID parmLeaveStatus(StatusID  _statusId = statusId)
+    {
+        statusId = _statusId;
+
+        return statusId;
+
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
